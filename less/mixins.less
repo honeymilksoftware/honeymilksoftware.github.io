@@ -137,3 +137,10 @@
 	-ms-transform-origin:     @x @y;
 	-o-transform-origin:      @x @y;
 }
+
+.font-size(@sizeValue) {
+	@remValue: @sizeValue;
+	@pxValue: (@sizeValue * 10);
+	font-size: ~"@{pxValue}px"; 
+	font-size: ~"@{remValue}rem";
+}
