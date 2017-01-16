@@ -5,8 +5,8 @@ body {
     width: 100%;
     height: 100%;
     font-family: "Lora","Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: white;
-    background-color: black;
+    color: @off-black;
+    background-color: white;
 }
 
 html {
@@ -14,17 +14,26 @@ html {
     height: 100%;
 }
 
-h1,
-h2,
+h1{
+    margin: 0 0 45  px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: 120;
+}
+
+h2 {
+    margin: 0 0 35px;
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 300;
+}
+
 h3,
 h4,
 h5,
 h6 {
     margin: 0 0 35px;
-    text-transform: uppercase;
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-weight: 300;
 }
 
 p {
@@ -59,7 +68,7 @@ a {
     border-bottom: 1px solid fade(white, 30%);
     text-transform: uppercase;
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: black;
+    background-color: white;
     .navbar-toggle {
         color: white;
         background-color: fade(white, 20%);
@@ -76,7 +85,7 @@ a {
         }
     }
     a {
-        color: white;
+        color: black;
     }
     .nav {
         li {
@@ -116,7 +125,7 @@ a {
         transition: background .5s ease-in-out,padding .5s ease-in-out;
         &.top-nav-collapse {
             padding: 0;
-            background: black;
+            background: white;
             border-bottom: 1px solid fade(white, 30%);
         }
     }
@@ -129,8 +138,8 @@ a {
     padding: 100px 0;
     text-align: center;
     color: white;
-    background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
-    background-color: black;
+    background: url(../img/honeymilk-bg.png) no-repeat bottom center scroll;
+    background-color: white;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -139,10 +148,21 @@ a {
         display: table-cell;
         vertical-align: middle;
         .brand-heading {
-            font-size: 40px;
+            font-family: "Lily Script One","Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 240px;
+            color: @honey;
+            .text-shadow(0 4px 4px rgba(0, 0, 0, 1.0));
+        }
+        .brand-subheading {
+            font-family: "Comfortaa","Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 50px;
+            letter-spacing:24px;
+            color: @software;
+            .text-shadow(0 2px 2px rgba(0, 0, 0, 1.0));
         }
         .intro-text {
             font-size: 18px;
+            color: @off-black;
         }
     }
     @media(min-width:768px) {
@@ -164,10 +184,10 @@ a {
     height: 70px;
     margin-top: 15px;
     padding: 7px 16px;
-    border: 2px solid white;
+    border: 2px solid black;
     border-radius: 100% !important;
     font-size: 40px;
-    color: white;
+    color: black;
     background: transparent;
     -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
@@ -175,8 +195,8 @@ a {
     &:hover,
     &:focus {
         outline: none;
-        color: white;
-        background: fade(white, 10%);
+        color: black;
+        background: fade(black, 10%);
     }
     i.animated {
         -webkit-transition-property: -webkit-transform;
