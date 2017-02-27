@@ -36,6 +36,7 @@ $('.navbar-collapse ul li a').click(function() {
     $(this).closest('.collapse').collapse('toggle');
 });
 
+/*
 // Google Maps Scripts
 var map = null;
 // When the window has finished loading create our google map below
@@ -43,6 +44,7 @@ google.maps.event.addDomListener(window, 'load', init);
 google.maps.event.addDomListener(window, 'resize', function() {
     map.setCenter(new google.maps.LatLng(40.6700, -73.9400));
 });
+*/
 
 function init() {
     // Basic options for a simple Google Map
@@ -187,3 +189,104 @@ function init() {
         icon: image
     });
 }
+
+
+
+//var colors = ["red", "green", "blue", "purple", "yellow", "orange"];
+/*
+// This is not intended to be the best solution, just to demonstrate the basic algorithm.
+for (var r=0; r<256; r++) {
+    for (var g=0; g<256; g++) {
+        for (var b=0; b<256; b++) {
+            // Assume we have 8 bits of alpha to use.
+            for (var a=0; a<256; a++) {
+                console.log('rgba(' + [r,g,b,a/255].join(',') + ')');
+            }
+        }
+    }
+}
+*/
+function hexToRgb(hex) {    
+// Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    console.log(result)
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
+var goingForward = true;
+var currentColor = 0;
+var endColor = 16777216;
+function switchColor() {
+    if (goingForward == true) {
+        if (currentColor >= endColor) {
+            goingForward = false;
+        } else {
+            currentColor = currentColor + 10;
+        }
+    } else {
+        if (currentColor <=0 ) {
+            goingForward = true;
+        } else {
+            currentColor = currentColor - 10;
+        }
+    }
+
+    var colour = '#' + ('00000' + currentColor.toString(16)).slice(-6);
+    var hexColor = hexToRgb(colour);
+    var newColor = "rgba(" + hexColor.r + ", " + hexColor.g + " , " + hexColor.b + ", 0.4)";
+    $('.well').css('background-color', newColor);
+
+    setTimeout(switchColor, 50);
+}
+
+// linear interpolation between two values a and b
+// u controls amount of a/b and is in range [0.0,1.0]
+lerp = function(a,b,u) {
+    return (1-u) * a + u * b;
+};
+
+fade = function(element, property, start, end, duration) {
+  var interval = 10;
+  var steps = duration/interval;
+  var step_u = 1.0/steps;
+  var u = 0.0;
+  var theInterval = setInterval(function(){
+    if (u >= 1.0){ clearInterval(theInterval) }
+    var r = parseInt(lerp(start.r, end.r, u));
+    var g = parseInt(lerp(start.g, end.g, u));
+    var b = parseInt(lerp(start.b, end.b, u));
+    var colorname = 'rgba('+r+','+g+','+b+', 0.4)';
+    $('.well').css(property, colorname);
+    u += step_u;
+  }, interval);
+};
+
+forward = function(element, property, start, end, duration) {
+    fade(element, property, start, end, duration);
+  setTimeout(function(){
+    backwards(element, property, start, end, duration)
+  },10000);
+};
+
+backwards = function(element, property, start, end, duration) {
+    fade(element, property, end, start, duration);
+  setTimeout(function(){
+    forward(element, property, start, end, duration)
+  },10000);
+};
+
+// in action
+el = document.getElementById('.well'); // your element
+property = 'background-color';       // fading property
+startColor = {r:204, g:  255, b:  255};  // red
+endColor   = {r:  0, g:102, b:204};  // dark turquoise
+
+forward(el,'background-color',startColor,endColor,10000);
