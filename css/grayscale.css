@@ -1,6 +1,6 @@
 /*!
  * Start Bootstrap - Grayscale v3.3.7 ()
- * Copyright 2013-2018 James Farmer
+ * Copyright 2013-2019 James Farmer
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
@@ -21,7 +21,7 @@ h1 {
   font-size: 120;
 }
 h2 {
-  margin: 0 0 35px;
+  margin: 0 0 25px;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
 }
@@ -184,6 +184,25 @@ a:focus {
   background-size: contain;
   -o-background-size: contain;
   overflow: hidden;
+}
+.nano-promo-section {
+  color: black;
+  padding: 5px 0px 0px 0px;
+}
+.nano-info-section {
+  padding: 0px 0px 0px 40px;
+}
+img.nano-promo-img {
+  width: 40%;
+  height: 40%;
+  alt: "Early Screenshot";
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+  -webkit-box-shadow: 1px 2px 5px 1px #333333;
+  -moz-box-shadow: 1px 2px 5px 1px #333333;
+  box-shadow: 1px 2px 5px 1px #333333;
 }
 .btn-circle {
   width: 70px;
