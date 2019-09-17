@@ -7,7 +7,7 @@ function randomSubhead(id) {
 		"Is this a good company name? Let me know in the comments",
 		"Can one person be a company? The answer is yes",
 		"I quit my job so I can make video games and disappoint my parents",
-		"Please sign up for the mailing list so I can gather ~ANALYTICS~"
+		"Please sign up for the mailing list so I can gather more data on you"
 	];
 	var sentence = subheads[Math.floor(Math.random() * subheads.length)];
 	for(var i = 0; i < sentence.length; i++){
