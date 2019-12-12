@@ -4,9 +4,9 @@
 body {
     width: 100%;
     height: 100%;
-    font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: @off-black;
-    background-color: white;
+    background-color: @bgcolor;
 }
 
 html {
@@ -375,13 +375,13 @@ footer {
 ::-moz-selection {
     text-shadow: none;
     background: #fcfcfc;
-    background: fade(white, 20%);
+    background: fade(@bgcolor, 20%);
 }
 
 ::selection {
     text-shadow: none;
     background: #fcfcfc;
-    background: fade(white, 20%);
+    background: fade(@bgcolor, 20%);
 }
 
 img::selection {
