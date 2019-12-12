@@ -193,8 +193,8 @@ a:focus {
   padding: 0px 0px 0px 40px;
 }
 img.nano-promo-img {
-  width: 40%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
   alt: "Early Screenshot";
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
@@ -351,6 +351,9 @@ footer p {
   text-shadow: none;
   background: #fcfcfc;
   background: rgba(251, 251, 251, 0.2);
+}
+img {
+  width: 100%;
 }
 img::selection {
   background: transparent;
